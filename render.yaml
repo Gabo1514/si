@@ -1,0 +1,30 @@
+services:
+  # Backend Service
+  - type: web
+    name: facturacion-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DECOLECTA_TOKEN
+        value: sk_11833.9we1rdmViLnaehmeNq1kklXT6RRHymsK
+    healthCheckPath: /api/health
+
+  # Frontend Service
+  - type: web
+    name: facturacion-frontend
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: facturacion-backend
+          envVarKey: RENDER_EXTERNAL_URL
