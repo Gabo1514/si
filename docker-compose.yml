@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DECOLECTA_TOKEN=sk_11833.9we1rdmViLnaehmeNq1kklXT6RRHymsK
+    restart: unless-stopped
+    networks:
+      - facturacion-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - facturacion-network
+
+networks:
+  facturacion-network:
+    driver: bridge

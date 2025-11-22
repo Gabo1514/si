@@ -1,0 +1,66 @@
+.app-container {
+  width: 100%;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-header {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  text-align: center;
+  border-left: 4px solid #2c3e50;
+}
+
+.app-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.app-header p {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-top: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-main {
+  display: grid;
+  gap: 30px;
+}
+
+.section-cliente,
+.section-factura,
+.section-lista {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.3s ease;
+}
+
+.section-cliente:hover,
+.section-factura:hover,
+.section-lista:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
